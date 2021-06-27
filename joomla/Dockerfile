@@ -1,21 +1,11 @@
 FROM debian:buster
 RUN apt-get update && apt-get install -y  --no-install-recommends -qqy \
 wget \
+curl \
 unzip \
 php-fpm \
 nginx \
-curl \
 php \
-php-gd \
-php-xmlrpc \
-php-curl \
-php-intl \
-php-imagick \
-php-mysql \
-php-zip \
-php-xml \
-php-mbstring \
-php-bcmath \
 ca-certificates && \
 wget -O Joomla.zip https://github.com/AFUJ/joomla-cms-fr/releases/download/3.9.15.1/Joomla_3.9.15-Stable-Full_Package_French_v1.zip && \
 unzip Joomla.zip -d /var/www/joomla &&\
