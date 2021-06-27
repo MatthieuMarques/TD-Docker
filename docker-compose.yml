@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  joomla_web:
+      build: ./joomla
+      image: joomla_web
+      volumes:
+          - website:/var/www/joomla
+      ports:
+          - 80:80
+      networks:
+          - joomla_network
+  
+  joomla_db:
+      image: mariadb:10.5
+      env_file:
+          - joomla_db/.env
+      volumes:
+          - /opt/joomla/db:/var/lib/mysql
+      expose:
+          - '3306'
+      networks:
+          - joomla_network
+        
+networks:
+    joomla_network:
+
+volumes:
+    website:
